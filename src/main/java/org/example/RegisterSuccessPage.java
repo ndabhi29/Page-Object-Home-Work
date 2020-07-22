@@ -1,7 +1,6 @@
 package org.example;
-
-import junit.framework.Assert;
 import org.openqa.selenium.By;
+import org.testng.Assert;
 
 public class RegisterSuccessPage extends Util {
 

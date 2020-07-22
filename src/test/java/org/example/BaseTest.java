@@ -1,6 +1,6 @@
 package org.example;
 
-import org.testng.annotations.AfterMethod;
+import org.testng.ITestResult;
 import org.testng.annotations.BeforeMethod;
 
 public class BaseTest extends Util {
@@ -14,12 +14,16 @@ public class BaseTest extends Util {
         browserManager.InitialiseMethod();
 
     }
-    @AfterMethod
-     public  void closeBrowser() {
-        browserManager.closeBrowser();
-    }
 
+    public void CloseBrowser(ITestResult result) { //Method to close browser
+        if (ITestResult.FAILURE == result.getStatus()) {
+            ScreenShot(result.getName() + timestamp());
+
+        }
+        browserManager.CloseBrowser();
+    }
 }
+
 
 
 
